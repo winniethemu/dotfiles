@@ -73,23 +73,23 @@ call pathogen#helptags()                        " generate the help tags
 " }
 
 " Vim UI {
-  set laststatus=2              " always show the status line
-  set sidescrolloff=10          " Keep 5 lines at the size
-  set number                    " turn on line numbers
-  set ruler                     " Always show current positions along the bottom
-  set showmatch                 " show matching brackets
+  set laststatus=2                              " always show the status line
+  set sidescrolloff=10                          " Keep 5 lines at the size
+  set number                                    " turn on line numbers
+  set ruler                                     " Always show current positions along the bottom
+  set showmatch                                 " show matching brackets
 " }
 
 " GUI Settings {
   if has("gui_running")
   " Basics {
-    colorscheme wombat          " set color scheme
-    set guifont=Monaco:h11      " set font
-    set mousehide               " hide the mouse cursor when typing
+    colorscheme wombat                          " set color scheme
+    set guifont=Monaco:h11                      " set font
+    set mousehide                               " hide the mouse cursor when typing
   " }
     if has("gui_macvim")
-      set transparency=2        " set transparency if possible
-      set guioptions=egmrt      " hide the toolbar in MacVim
+      set transparency=2                        " set transparency if possible
+      set guioptions=egmrt                      " hide the toolbar in MacVim
     endif
   endif
 " }
