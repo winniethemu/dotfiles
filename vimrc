@@ -1,33 +1,33 @@
 " Configuration file for vim
 set modelines=0			" CVE-2007-2438
 
-call pathogen#runtime_append_all_bundles()	" start pathogen
-call pathogen#helptags()                    " generate the help tags
+call pathogen#runtime_append_all_bundles()      " start pathogen
+call pathogen#helptags()                        " generate the help tags
 
 " Basics {
-  set nocompatible 	  " explicitly get out of vi-compatible mode
-  set noexrc 			    " don't use local version of .(g)vimrc, .exrc
-  set ai				      " auto indenting
-  set hlsearch		    " highlight the last searched term
-  set background=dark " we plan to use a dark background
-  set backspace=2		  " more powerful backspacing
-  set tabstop=8		    " insert 8 spaces for a tab
-  set shiftwidth=8	  " insert 8 spaces for indentation
-  set expandtab		    " insert spaces when press tab
-  set history=100		  " keep 100 lines of history
-  set mouse=a         " Enable mouse usage (all modes)
+  set nocompatible                              " explicitly get out of vi-compatible mode
+  set noexrc                                    " don't use local version of .(g)vimrc, .exrc
+  set ai                                        " auto indenting
+  set hlsearch                                  " highlight the last searched term
+  set background=dark                           " we plan to use a dark background
+  set backspace=2                               " more powerful backspacing
+  set tabstop=8                                 " insert 8 spaces for a tab
+  set shiftwidth=8                              " insert 8 spaces for indentation
+  set expandtab                                 " insert spaces when press tab
+  set history=100                               " keep 100 lines of history
+  set mouse=a                                   " Enable mouse usage (all modes)
 
-  syntax on 			    " syntax highlighting on
+  syntax on                                     " syntax highlighting on
 " }
 
 " General {
-  filetype on						          " turn on filetype detection
-  filetype plugin indent on 		  " load filetype plugins/indent settings
-  set backspace=indent,eol,start 	" make backspace a more flexible
-  set backup 						          " make backup files
-  set backupdir=~/.vim/backup 	  " where to put backup files
-  set clipboard+=unnamed 			    " share windows clipboard
-  set directory=~/.vim/tmp 		    " directory to place swap files in
+  filetype on                                   " turn on filetype detection
+  filetype plugin indent on                     " load filetype plugins/indent settings
+  set backspace=indent,eol,start                " make backspace a more flexible
+  set backup                                    " make backup files
+  set backupdir=~/.vim/backup                   " where to put backup files
+  set clipboard+=unnamed                        " share windows clipboard
+  set directory=~/.vim/tmp                      " directory to place swap files in
   let mapleader=","
 
   autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
@@ -63,7 +63,7 @@ call pathogen#helptags()                    " generate the help tags
 " }
 
 " Command Aliases {
-  " requires sessionman.vim
+  " vim session management (requires sessionman.vim)
   command O SessionOpen
   command L SessionOpenLast
   command X SessionClose
@@ -73,23 +73,23 @@ call pathogen#helptags()                    " generate the help tags
 " }
 
 " Vim UI {
-  set laststatus=2 		  " always show the status line
-  set sidescrolloff=10 	" Keep 5 lines at the size
-  set number 				    " turn on line numbers
-  set ruler 				    " Always show current positions along the bottom
-  set showmatch 			  " show matching brackets
+  set laststatus=2              " always show the status line
+  set sidescrolloff=10          " Keep 5 lines at the size
+  set number                    " turn on line numbers
+  set ruler                     " Always show current positions along the bottom
+  set showmatch                 " show matching brackets
 " }
 
 " GUI Settings {
   if has("gui_running")
   " Basics {
-    colorscheme wombat			" set color scheme
-    set guifont=Monaco:h11 	" set font
-    set mousehide 				  " hide the mouse cursor when typing
+    colorscheme wombat          " set color scheme
+    set guifont=Monaco:h11      " set font
+    set mousehide               " hide the mouse cursor when typing
   " }
     if has("gui_macvim")
-      set transparency=2			" set transparency if possible
-      set guioptions=egmrt    " hide the toolbar in MacVim
+      set transparency=2        " set transparency if possible
+      set guioptions=egmrt      " hide the toolbar in MacVim
     endif
   endif
 " }
