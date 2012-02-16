@@ -30,7 +30,7 @@ call pathogen#helptags()                        " generate the help tags
   set directory=~/.vim/tmp                      " directory to place swap files in
   let mapleader=","
 
-  autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+  autocmd FileType ruby,eruby setlocal shiftwidth=2 tabstop=2
   let filetype_m='objc'
   autocmd FileType objc setlocal shiftwidth=4 tabstop=4
 " }
@@ -50,6 +50,10 @@ call pathogen#helptags()                        " generate the help tags
   map <leader>n :noh<CR>
   "map <leader>t for running tests
 
+  " fast split screen
+  nmap <C-v> <C-w><C-v>
+  nmap <C-s> <C-w><C-s>
+
   " jumping between files (requires rails.vim)
   map <leader>c :Rcontroller<CR>
   map <leader>m :Rmodel<CR>
@@ -66,7 +70,7 @@ call pathogen#helptags()                        " generate the help tags
   " vim session management (requires sessionman.vim)
   command O SessionOpen
   command L SessionOpenLast
-  command X SessionClose
+  command SX SessionClose
   command S SessionSave
   command SS SessionSaveAs
   command SL SessionShowLast
