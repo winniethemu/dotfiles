@@ -5,19 +5,20 @@ call pathogen#runtime_append_all_bundles()      " start pathogen
 call pathogen#helptags()                        " generate the help tags
 
 " Basics {
+  syntax on                                     " syntax highlighting on
   set nocompatible                              " explicitly get out of vi-compatible mode
   set noexrc                                    " don't use local version of .(g)vimrc, .exrc
   set ai                                        " auto indenting
   set hlsearch                                  " highlight the last searched term
   set background=dark                           " we plan to use a dark background
-  set backspace=2                               " more powerful backspacing
-  set tabstop=8                                 " insert 8 spaces for a tab
-  set shiftwidth=8                              " insert 8 spaces for indentation
-  set expandtab                                 " insert spaces when press tab
   set history=100                               " keep 100 lines of history
-  set mouse=a                                   " Enable mouse usage (all modes)
+  set mouse=a                                   " enable mouse usage (all modes)
+  set backspace=2                               " more powerful backspacing
+  set tabstop=2                                 " insert 2 spaces for a tab
+  set shiftwidth=2                              " insert 2 spaces for indentation
+  set expandtab                                 " insert spaces when press tab
 
-  syntax on                                     " syntax highlighting on
+  autocmd FileType c setlocal shiftwidth=8 tabstop=8 backspace=8
 " }
 
 " General {
@@ -29,10 +30,6 @@ call pathogen#helptags()                        " generate the help tags
   set clipboard+=unnamed                        " share windows clipboard
   set directory=~/.vim/tmp                      " directory to place swap files in
   let mapleader=","
-
-  autocmd FileType ruby,eruby setlocal shiftwidth=2 tabstop=2
-  let filetype_m='objc'
-  autocmd FileType objc setlocal shiftwidth=4 tabstop=4
 " }
 
 " Key Mapping {
@@ -58,6 +55,7 @@ call pathogen#helptags()                        " generate the help tags
   map <leader>c :Rcontroller<CR>
   map <leader>m :Rmodel<CR>
   map <leader>v :Rview<CR>
+  map <leader>a :A<CR>
 
   " re-map arrow keys to switching between windows
   map <S-up> :wincmd k<CR>
