@@ -46,6 +46,12 @@ call pathogen#helptags()                        " generate the help tags
   map <leader>d :NERDTree<CR>
   map <leader>n :noh<CR>
   "map <leader>t for running tests
+  
+  " fast change text inside parentheses/brackets
+  imap p9 <ESC>ci(
+  imap p[ <ESC>ci[
+  nmap p9 ci(
+  nmap p[ ci[
 
   " fast split screen
   nmap <C-v> <C-w><C-v>
