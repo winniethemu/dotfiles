@@ -18,7 +18,7 @@ call pathogen#helptags()                        " generate the help tags
   set shiftwidth=2                              " insert 2 spaces for indentation
   set expandtab                                 " insert spaces when press tab
 
-  autocmd FileType c setlocal shiftwidth=8 tabstop=8 backspace=8
+  autocmd FileType c setlocal shiftwidth=8 tabstop=8
 " }
 
 " General {
@@ -39,13 +39,16 @@ call pathogen#helptags()                        " generate the help tags
   nmap <up> gk
   nmap <down> gj
   nmap q :q<CR>
+  nmap save :w<CR>
   nmap wq :wq<CR>
   nmap <leader>i :!irb<CR>
   nmap <leader>s :sh<CR>
 
   map <leader>d :NERDTree<CR>
   map <leader>n :noh<CR>
-  "map <leader>t for running tests
+
+  " markdown to html
+  nmap <leader>md :%! /usr/local/bin/markdown --html4tags<CR>
   
   " fast change text inside parentheses/brackets
   imap p9 <ESC>ci(
@@ -54,8 +57,11 @@ call pathogen#helptags()                        " generate the help tags
   nmap p[ ci[
 
   " fast split screen
-  nmap <C-v> <C-w><C-v>
-  nmap <C-s> <C-w><C-s>
+  nmap vv <C-w><C-v>
+  nmap ss <C-w><C-s>
+
+  "ctrl-p stuff
+  nmap pp <C-p>
 
   " jumping between files (requires rails.vim)
   map <leader>c :Rcontroller<CR>
@@ -72,7 +78,6 @@ call pathogen#helptags()                        " generate the help tags
 
 " Command Aliases {
   " vim session management (requires sessionman.vim)
-  command O SessionOpen
   command L SessionOpenLast
   command SX SessionClose
   command S SessionSave
