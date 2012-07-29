@@ -60,20 +60,24 @@ call pathogen#helptags()                        " generate the help tags
   nmap vv <C-w><C-v>
   nmap ss <C-w><C-s>
 
-  "ctrl-p stuff
+  " ctrl-p stuff
   nmap pp <C-p>
 
-  " jumping between files (requires rails.vim)
+  " go to next/previous buffer
+  nmap <leader>[ :bp<CR>
+  nmap <leader>] :bn<CR>
+
+  " navigate around a rails project (requires rails.vim)
   map <leader>c :Rcontroller<CR>
   map <leader>m :Rmodel<CR>
   map <leader>v :Rview<CR>
   map <leader>a :A<CR>
 
   " re-map arrow keys to switching between windows
-  map <S-up> :wincmd k<CR>
-  map <S-down> :wincmd j<CR>
-  map <S-left> :wincmd h<CR>
-  map <S-right> :wincmd l<CR>
+  nmap <S-up> :wincmd k<CR>
+  nmap <S-down> :wincmd j<CR>
+  nmap <S-left> :wincmd h<CR>
+  nmap <S-right> :wincmd l<CR>
 " }
 
 " Command Aliases {
@@ -96,8 +100,8 @@ call pathogen#helptags()                        " generate the help tags
 " GUI Settings {
   if has("gui_running")
   " Basics {
-    colorscheme wombat                          " set color scheme
-    set guifont=Monaco:h11                      " set font
+    colorscheme smyck                          	" set color scheme
+    set guifont=Menlo:h11                       " set font
     set mousehide                               " hide the mouse cursor when typing
   " }
     if has("gui_macvim")
