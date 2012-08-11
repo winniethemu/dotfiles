@@ -1,8 +1,8 @@
 " Configuration file for vim
-set modelines=0			" CVE-2007-2438
+set modelines=0                                       " CVE-2007-2438
 
-call pathogen#runtime_append_all_bundles()      " start pathogen
-call pathogen#helptags()                        " generate the help tags
+call pathogen#runtime_append_all_bundles()            " start pathogen
+call pathogen#helptags()                              " generate the help tags
 
 " Basics {
         syntax on                                     " syntax highlighting on
@@ -33,48 +33,60 @@ call pathogen#helptags()                        " generate the help tags
 " }
 
 " Key Mapping {
-        imap jk <Esc>
-        imap <up> <Esc>gka
-        imap <down> <Esc>gja
-        nmap <up> gk
-        nmap <down> gj
-        nmap q :q<CR>
-        nmap save :w<CR>
-        nmap wq :wq<CR>
-        nmap <leader>i :!irb<CR>
-        nmap <leader>s :sh<CR>
+        inoremap jk <Esc>
+        inoremap k <Esc>gka
+        inoremap j <Esc>gja
+        nnoremap k gk
+        nnoremap j gj
+        nnoremap q :q<CR>
+        nnoremap save :w<CR>
+        nnoremap wq :wq<CR>
+        
+        " disable arrow keys to learn hjkl
+        nnoremap <up> <nop>
+        nnoremap <down> <nop>
+        nnoremap <left> <nop>
+        nnoremap <right> <nop>
+        inoremap <up> <nop>
+        inoremap <down> <nop>
+        inoremap <left> <nop>
+        inoremap <right> <nop>
 
-        nmap <leader>d :NERDTree<CR>
-        nmap <leader>n :noh<CR>
+        nnoremap <leader>i :!irb<CR>
+        nnoremap <leader>s :sh<CR>
+        nnoremap <leader>d :NERDTreeMirrorToggle<CR>
+        nnoremap <leader>n :noh<CR>
 
         " markdown to html
-        nmap <leader>md :%! /usr/local/bin/markdown --html4tags<CR>
+        nnoremap <leader>md :%! /usr/local/bin/markdown --html4tags<CR>
   
         " fast change text inside parentheses/brackets
-        nmap p9 ci(
-        nmap p[ ci[
-        nmap p' ci'
-        nmap p'' ci"
+        nnoremap p9 ci(
+        nnoremap p[ ci[
+        nnoremap p' ci'
+        nnoremap p'' ci"
 
         " fast split screen
-        nmap vv <C-w><C-v>
-        nmap ss <C-w><C-s>
+        nnoremap vv <C-w><C-v>
+        nnoremap ss <C-w><C-s>
 
         " ctrl-p stuff
-        nmap pp <C-p>
+        nnoremap pp <C-p>
 
-        " go to next/previous buffer
-        nmap bb :bp<CR>
-        nmap ff :bn<CR>
+        " buffer stuff
+        nnoremap ls :ls<CR>
+        nnoremap bb :bp<CR>
+        nnoremap ff :bn<CR>
+	      nnoremap bd :bd<CR>
 
         " navigate around a rails project (requires rails.vim)
-        nmap <leader>c :Rcontroller<CR>
-        nmap <leader>m :Rmodel<CR>
-        nmap <leader>v :Rview<CR>
-        nmap <leader>a :A<CR>
+        nnoremap <leader>c :Rcontroller<CR>
+        nnoremap <leader>m :Rmodel<CR>
+        nnoremap <leader>v :Rview<CR>
+        nnoremap <leader>a :A<CR>
 
         " switch between windows
-        nmap <S-w> <C-w><C-w>
+        nnoremap <tab>w <C-w><C-w>
 " }
 
 " Command Aliases {
@@ -96,14 +108,12 @@ call pathogen#helptags()                        " generate the help tags
 
 " GUI Settings {
         if has("gui_running")
-                " Basics {
-                colorscheme smyck                          	" set color scheme
-                set guifont=Menlo:h11                       " set font
-                set mousehide                               " hide the mouse cursor when typing
-                " }
+                colorscheme smyck                     " set color scheme
+                set guifont=Menlo:h11                 " set font
+                set mousehide                         " hide the mouse cursor when typing
                 if has("gui_macvim")
-                        set transparency=2                        " set transparency if possible
-                        set guioptions=egmrt                      " hide the toolbar in MacVim
+                        set transparency=2            " set transparency if possible
+                        set guioptions=egmrt          " hide the toolbar in MacVim
                 endif
         endif
 " }
