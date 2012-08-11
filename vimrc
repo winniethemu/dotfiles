@@ -77,7 +77,7 @@ call pathogen#helptags()                              " generate the help tags
         nnoremap ls :ls<CR>
         nnoremap bb :bp<CR>
         nnoremap ff :bn<CR>
-	      nnoremap bd :bd<CR>
+        nnoremap bd :bd<CR>
 
         " navigate around a rails project (requires rails.vim)
         nnoremap <leader>c :Rcontroller<CR>
@@ -127,7 +127,7 @@ call pathogen#helptags()                              " generate the help tags
 
 if has("autocmd")
         " Run vimrc immediately after updating it
-        autocmd BufWritePost .vimrc source #MYVIMRC 
+        autocmd BufWritePost .vimrc source $MYVIMRC 
         " Don't write backup file if vim is being called by "crontab -e"
         autocmd BufWrite /private/tmp/crontab.* set nowritebackup
         " Don't write backup file if vim is being called by "chpass"
