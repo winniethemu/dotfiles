@@ -30,17 +30,17 @@ call pathogen#helptags()                              " generate the help tags
         set clipboard+=unnamed                        " share windows clipboard
         set directory=~/.vim/tmp                      " directory to place swap files in
         let mapleader=","
+        let g:neocomplcache_enable_at_startup = 1     " load neocomplcache.vim on startup
 " }
 
 " Key Mapping {
         inoremap jk <Esc>
-        inoremap k <Esc>gka
-        inoremap j <Esc>gja
         nnoremap k gk
         nnoremap j gj
-        nnoremap q :q<CR>
-        nnoremap save :w<CR>
-        nnoremap wq :wq<CR>
+        nnoremap q b
+        nnoremap sv :w<CR>
+        nnoremap <leader>i :!irb<CR>
+        nnoremap <leader>h :noh<CR>
         
         " disable arrow keys to learn hjkl
         nnoremap <up> <nop>
@@ -52,14 +52,6 @@ call pathogen#helptags()                              " generate the help tags
         inoremap <left> <nop>
         inoremap <right> <nop>
 
-        nnoremap <leader>i :!irb<CR>
-        nnoremap <leader>s :sh<CR>
-        nnoremap <leader>d :NERDTreeMirrorToggle<CR>
-        nnoremap <leader>n :noh<CR>
-
-        " markdown to html
-        nnoremap <leader>md :%! /usr/local/bin/markdown --html4tags<CR>
-  
         " fast change text inside parentheses/brackets
         nnoremap p9 ci(
         nnoremap p[ ci[
@@ -67,35 +59,32 @@ call pathogen#helptags()                              " generate the help tags
         nnoremap p'' ci"
 
         " fast split screen
-        nnoremap vv <C-w><C-v>
-        nnoremap ss <C-w><C-s>
-
-        " ctrl-p stuff
-        nnoremap pp <C-p>
-
-        " buffer stuff
-        nnoremap ls :ls<CR>
-        nnoremap bb :bp<CR>
-        nnoremap ff :bn<CR>
-        nnoremap bd :bd<CR>
-
-        " navigate around a rails project (requires rails.vim)
-        nnoremap <leader>c :Rcontroller<CR>
-        nnoremap <leader>m :Rmodel<CR>
-        nnoremap <leader>v :Rview<CR>
-        nnoremap <leader>a :A<CR>
+        nnoremap <leader>v <C-w><C-v>
+        nnoremap <leader>s <C-w><C-s>
 
         " switch between windows
         nnoremap <tab>w <C-w><C-w>
-" }
 
-" Command Aliases {
-        " vim session management (requires sessionman.vim)
-        command L SessionOpenLast
-        command SX SessionClose
-        command S SessionSave
-        command SS SessionSaveAs
-        command SL SessionShowLast
+        " markdown to html
+        nnoremap <leader>md :read! markdown %:p > %:p:r.html<CR>
+
+        " NERDTree stuff
+        nnoremap <leader>n :NERDTreeMirrorToggle<CR>
+
+        " buffer stuff
+        nnoremap <leader>f :bp<CR>
+        nnoremap <leader>g :bn<CR>
+
+        " tagbar stuff
+        nnoremap <leader>tt :TagbarToggle<CR>
+
+        " fugitive stuff
+        nnoremap <leader>gs :Gstatus
+        nnoremap <leader>gd :Gdiff
+        nnoremap <leader>gc :Gcommit
+        nnoremap <leader>gb :Gblame
+        nnoremap <leader>gl :Glog
+        nnoremap <leader>gp :Git push
 " }
 
 " Vim UI {
@@ -127,7 +116,7 @@ call pathogen#helptags()                              " generate the help tags
 
 if has("autocmd")
         " Run vimrc immediately after updating it
-        autocmd BufWritePost .vimrc source $MYVIMRC 
+        autocmd BufWritePost .vimrc source $MYVIMRC
         " Don't write backup file if vim is being called by "crontab -e"
         autocmd BufWrite /private/tmp/crontab.* set nowritebackup
         " Don't write backup file if vim is being called by "chpass"
