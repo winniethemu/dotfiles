@@ -107,6 +107,38 @@ call pathogen#helptags()                              " generate the help tags
         endif
 " }
 
+" Plugin Management {
+        filetype off                                  " required!
+        set rtp+=~/.vim/bundle/vundle/
+        call vundle#rc()
+
+        " Let Vundle manage Vundle (required!)
+        " NOTE: comments after Bundle command are not allowed..
+        Bundle 'gmarik/vundle'
+        
+        " My bundles
+        Bundle 'mileszs/ack.vim'
+        Bundle 'Shougo/neocomplcache'
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'majutsushi/tagbar'
+        Bundle 'tpope/vim-fugitive'
+        Bundle 'tpope/vim-rails'
+        Bundle 'kien/ctrlp.vim'
+        Bundle 'scrooloose/nerdcommenter'
+        Bundle 'scrooloose/syntastic'
+        Bundle 'Lokaltog/vim-easymotion'
+        Bundle 'jistr/vim-nerdtree-tabs'
+        Bundle 'tpope/vim-surround'
+
+        filetype plugin indent on                     " required!
+        
+        " Brief help
+        " :BundleList           - list configured bundles
+        " :BundleInstall(!)     - install (update) bundles
+        " :BundleSearch(!) foo  - search (or refresh cache first) for foo
+        " :BundleClean(!)       - confirm (or auto-approve) removal of unused bundles
+" }
+
 " When editing a file, always jump to the last cursor position autocmd BufReadPost *
         \ if ! exists("g:leave_my_cursor_position_alone") |
         \ if line("'\"") > 0 && line ("'\"") <= line("$") |
