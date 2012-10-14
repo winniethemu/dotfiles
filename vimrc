@@ -30,7 +30,6 @@ call pathogen#helptags()                              " generate the help tags
         set clipboard+=unnamed                        " share windows clipboard
         set directory=~/.vim/tmp                      " directory to place swap files in
         let mapleader=","
-        let g:neocomplcache_enable_at_startup = 1     " load neocomplcache.vim on startup
 " }
 
 " Key Mapping {
@@ -63,7 +62,7 @@ call pathogen#helptags()                              " generate the help tags
         nnoremap <leader>s <C-w><C-s>
 
         " switch between windows
-        nnoremap <tab>w <C-w><C-w>
+        nnoremap <TAB>w <C-w><C-w>
 
         " markdown to html
         nnoremap <leader>md :read! markdown %:p > %:p:r.html<CR>
@@ -137,6 +136,46 @@ call pathogen#helptags()                              " generate the help tags
         " :BundleInstall(!)     - install (update) bundles
         " :BundleSearch(!) foo  - search (or refresh cache first) for foo
         " :BundleClean(!)       - confirm (or auto-approve) removal of unused bundles
+" }
+
+" Auto-complete Settings {
+        let g:neocomplcache_enable_at_startup = 1
+        let g:neocomplcache_enable_smart_case = 1
+        let g:neocomplcache_enable_camel_case_completion = 1
+        let g:neocomplcache_enable_underbar_completion = 1
+        let g:neocomplcache_min_syntax_length = 3
+        let g:neocomplcache_enable_auto_delimiter = 1
+        let g:neocomplcache_max_list = 15
+        let g:neocomplcache_auto_completion_start_length = 3
+        let g:neocomplcache_force_overwrite_completefunc = 1
+        let g:neocomplcache_enable_auto_select = 0
+
+        " Plugin key-mappings
+        inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+        inoremap <expr><s-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+        " Define keyword
+        if !exists('g:neocomplcache_keyword_patterns')
+                let g:neocomplcache_keyword_patterns = {}
+        endif
+        let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+        " Enable omni completion
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+        
+        " Enable heavy omni completion
+        if !exists('g:neocomplcache_omni_patterns')
+                let g:neocomplcache_omni_patterns = {}
+        endif
+        let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+        let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+        let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+        let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 " }
 
 " When editing a file, always jump to the last cursor position autocmd BufReadPost *
