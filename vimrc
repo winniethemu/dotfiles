@@ -1,8 +1,38 @@
 " Configuration file for vim
 set modelines=0                                       " CVE-2007-2438
 
-call pathogen#runtime_append_all_bundles()            " start pathogen
-call pathogen#helptags()                              " generate the help tags
+" Plugin Management {
+        filetype off                                  " required!
+        set rtp+=~/.vim/bundle/vundle/
+        call vundle#rc()
+
+        " Let Vundle manage Vundle (required!)
+        " NOTE: comments after Bundle command are not allowed..
+        Bundle 'gmarik/vundle'
+        
+        " My bundles
+        Bundle 'mileszs/ack.vim'
+        Bundle 'Shougo/neocomplcache'
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'majutsushi/tagbar'
+        Bundle 'tpope/vim-fugitive'
+        Bundle 'tpope/vim-rails'
+        Bundle 'kien/ctrlp.vim'
+        Bundle 'scrooloose/nerdcommenter'
+        Bundle 'scrooloose/syntastic'
+        Bundle 'Lokaltog/vim-easymotion'
+        Bundle 'jistr/vim-nerdtree-tabs'
+        Bundle 'tpope/vim-surround'
+
+        filetype on                                   " turn on filetype detection
+        filetype plugin indent on                     " required!
+        
+        " Brief help
+        " :BundleList           - list configured bundles
+        " :BundleInstall(!)     - install (update) bundles
+        " :BundleSearch(!) foo  - search (or refresh cache first) for foo
+        " :BundleClean(!)       - confirm (or auto-approve) removal of unused bundles
+" }
 
 " Basics {
         syntax on                                     " syntax highlighting on
@@ -18,12 +48,11 @@ call pathogen#helptags()                              " generate the help tags
         set shiftwidth=2                              " insert 2 spaces for indentation
         set expandtab                                 " insert spaces when press tab
 
-        autocmd FileType c setlocal shiftwidth=8 tabstop=8
+        autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8
+        autocmd FileType sh,csh,zsh setlocal shiftwidth=8 tabstop=8
 " }
 
 " General {
-        filetype on                                   " turn on filetype detection
-        filetype plugin indent on                     " load filetype plugins/indent settings
         set backspace=indent,eol,start                " make backspace a more flexible
         set backup                                    " make backup files
         set backupdir=~/.vim/backup                   " where to put backup files
@@ -104,38 +133,6 @@ call pathogen#helptags()                              " generate the help tags
                         set guioptions=egmrt          " hide the toolbar in MacVim
                 endif
         endif
-" }
-
-" Plugin Management {
-        filetype off                                  " required!
-        set rtp+=~/.vim/bundle/vundle/
-        call vundle#rc()
-
-        " Let Vundle manage Vundle (required!)
-        " NOTE: comments after Bundle command are not allowed..
-        Bundle 'gmarik/vundle'
-        
-        " My bundles
-        Bundle 'mileszs/ack.vim'
-        Bundle 'Shougo/neocomplcache'
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'majutsushi/tagbar'
-        Bundle 'tpope/vim-fugitive'
-        Bundle 'tpope/vim-rails'
-        Bundle 'kien/ctrlp.vim'
-        Bundle 'scrooloose/nerdcommenter'
-        Bundle 'scrooloose/syntastic'
-        Bundle 'Lokaltog/vim-easymotion'
-        Bundle 'jistr/vim-nerdtree-tabs'
-        Bundle 'tpope/vim-surround'
-
-        filetype plugin indent on                     " required!
-        
-        " Brief help
-        " :BundleList           - list configured bundles
-        " :BundleInstall(!)     - install (update) bundles
-        " :BundleSearch(!) foo  - search (or refresh cache first) for foo
-        " :BundleClean(!)       - confirm (or auto-approve) removal of unused bundles
 " }
 
 " Auto-complete Settings {
