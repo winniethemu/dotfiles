@@ -66,9 +66,7 @@ set modelines=0                                       " CVE-2007-2438
         nnoremap k gk
         nnoremap j gj
         nnoremap q b
-        nnoremap sv :w<CR>
-        nnoremap <leader>i :!irb<CR>
-        nnoremap <leader>h :noh<CR>
+        nnoremap <TAB>h :noh<CR>
         
         " disable arrow keys to learn hjkl
         nnoremap <up> <nop>
@@ -100,8 +98,9 @@ set modelines=0                                       " CVE-2007-2438
         nnoremap <leader>n :NERDTreeMirrorToggle<CR>
 
         " buffer stuff
-        nnoremap <leader>f :bp<CR>
-        nnoremap <leader>g :bn<CR>
+        nnoremap <leader>b :ls<CR>:b<Space>
+        nnoremap fd :bn<CR>
+        nnoremap df :bp<CR>
 
         " tagbar stuff
         nnoremap <leader>tt :TagbarToggle<CR>
