@@ -1,5 +1,6 @@
 " Configuration file for vim
-set modelines=0                                       " CVE-2007-2438
+        set nomodeline                                " CVE-2007-2438
+        set nocompatible                              " explicitly get out of vi-compatible mode
 
 " Plugin Management {
         filetype off                                  " required!
@@ -12,19 +13,17 @@ set modelines=0                                       " CVE-2007-2438
         
         " My bundles
         Bundle 'mileszs/ack.vim'
-        Bundle 'Shougo/neocomplcache'
         Bundle 'scrooloose/nerdtree'
+        Bundle 'fholgado/minibufexpl.vim'
         Bundle 'majutsushi/tagbar'
         Bundle 'tpope/vim-fugitive'
         Bundle 'tpope/vim-rails'
         Bundle 'kien/ctrlp.vim'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/syntastic'
-        Bundle 'Lokaltog/vim-easymotion'
         Bundle 'jistr/vim-nerdtree-tabs'
         Bundle 'tpope/vim-surround'
 
-        filetype on                                   " turn on filetype detection
         filetype plugin indent on                     " required!
         
         " Brief help
@@ -36,7 +35,6 @@ set modelines=0                                       " CVE-2007-2438
 
 " Basics {
         syntax on                                     " syntax highlighting on
-        set nocompatible                              " explicitly get out of vi-compatible mode
         set noexrc                                    " don't use local version of .(g)vimrc, .exrc
         set ai                                        " auto indenting
         set hlsearch                                  " highlight the last searched term
@@ -67,6 +65,9 @@ set modelines=0                                       " CVE-2007-2438
         nnoremap j gj
         nnoremap q b
         nnoremap <TAB>h :noh<CR>
+
+        " open vimrc in split screen
+        nnoremap <leader><TAB> :sp ~/.vimrc<CR>
         
         " disable arrow keys to learn hjkl
         nnoremap <up> <nop>
@@ -77,12 +78,6 @@ set modelines=0                                       " CVE-2007-2438
         inoremap <down> <nop>
         inoremap <left> <nop>
         inoremap <right> <nop>
-
-        " fast change text inside parentheses/brackets
-        nnoremap p9 ci(
-        nnoremap p[ ci[
-        nnoremap p' ci'
-        nnoremap p'' ci"
 
         " fast split screen
         nnoremap <leader>v <C-w><C-v>
@@ -132,46 +127,6 @@ set modelines=0                                       " CVE-2007-2438
                         set guioptions=egmrt          " hide the toolbar in MacVim
                 endif
         endif
-" }
-
-" Auto-complete Settings {
-        let g:neocomplcache_enable_at_startup = 1
-        let g:neocomplcache_enable_smart_case = 1
-        let g:neocomplcache_enable_camel_case_completion = 1
-        let g:neocomplcache_enable_underbar_completion = 1
-        let g:neocomplcache_min_syntax_length = 3
-        let g:neocomplcache_enable_auto_delimiter = 1
-        let g:neocomplcache_max_list = 15
-        let g:neocomplcache_auto_completion_start_length = 3
-        let g:neocomplcache_force_overwrite_completefunc = 1
-        let g:neocomplcache_enable_auto_select = 0
-
-        " Plugin key-mappings
-        inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-        inoremap <expr><s-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-        " Define keyword
-        if !exists('g:neocomplcache_keyword_patterns')
-                let g:neocomplcache_keyword_patterns = {}
-        endif
-        let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-        " Enable omni completion
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-        
-        " Enable heavy omni completion
-        if !exists('g:neocomplcache_omni_patterns')
-                let g:neocomplcache_omni_patterns = {}
-        endif
-        let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-        let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-        let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-        let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 " }
 
 " When editing a file, always jump to the last cursor position autocmd BufReadPost *
