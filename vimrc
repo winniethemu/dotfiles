@@ -23,6 +23,7 @@
         Bundle 'scrooloose/syntastic'
         Bundle 'jistr/vim-nerdtree-tabs'
         Bundle 'tpope/vim-surround'
+        Bundle 'kchmck/vim-coffee-script'
 
         filetype plugin indent on                     " required!
         
@@ -56,7 +57,7 @@
         set backupdir=~/.vim/backup                   " where to put backup files
         set clipboard+=unnamed                        " share windows clipboard
         set directory=~/.vim/tmp                      " directory to place swap files in
-        let mapleader=","
+        let mapleader=','
 " }
 
 " Key Mapping {
@@ -83,6 +84,10 @@
         nnoremap <leader>v <C-w><C-v>
         nnoremap <leader>s <C-w><C-s>
 
+        " jump between current and last edit locations
+        nnoremap <TAB>i <C-i>
+        nnoremap <TAB>o <C-o>
+
         " switch between windows
         nnoremap <TAB>w <C-w><C-w>
 
@@ -90,7 +95,7 @@
         nnoremap <leader>md :read! markdown %:p > %:p:r.html<CR>
 
         " NERDTree stuff
-        nnoremap <leader>n :NERDTreeMirrorToggle<CR>
+        nnoremap <TAB>n :NERDTreeMirrorToggle<CR>
 
         " buffer stuff
         nnoremap <leader>b :ls<CR>:b<Space>
@@ -98,7 +103,7 @@
         nnoremap df :bp<CR>
 
         " tagbar stuff
-        nnoremap <leader>tt :TagbarToggle<CR>
+        nnoremap <TAB>t :TagbarToggle<CR>
 
         " fugitive stuff
         nnoremap <leader>gs :Gstatus
