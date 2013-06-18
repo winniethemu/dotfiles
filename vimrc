@@ -61,15 +61,11 @@
 " }
 
 " Key Mapping {
-        inoremap jk <Esc>
+        inoremap jk <ESC>
         nnoremap k gk
         nnoremap j gj
         nnoremap q b
-        nnoremap <TAB>h :noh<CR>
 
-        " open vimrc in split screen
-        nnoremap <leader><TAB> :sp ~/.vimrc<CR>
-        
         " disable arrow keys to learn hjkl
         nnoremap <up> <nop>
         nnoremap <down> <nop>
@@ -84,18 +80,17 @@
         nnoremap <leader>v <C-w><C-v>
         nnoremap <leader>s <C-w><C-s>
 
-        " jump between current and last edit locations
-        nnoremap <TAB>i <C-i>
-        nnoremap <TAB>o <C-o>
-
         " switch between windows
-        nnoremap <TAB>w <C-w><C-w>
+        nnoremap <C-h> <C-w>h
+        nnoremap <C-j> <C-w>j
+        nnoremap <C-k> <C-w>k
+        nnoremap <C-l> <C-w>l
 
         " markdown to html
         nnoremap <leader>md :read! markdown %:p > %:p:r.html<CR>
 
         " NERDTree stuff
-        nnoremap <TAB>n :NERDTreeMirrorToggle<CR>
+        nnoremap <C-n> :NERDTreeMirrorToggle<CR>
 
         " buffer stuff
         nnoremap <leader>b :ls<CR>:b<Space>
@@ -103,15 +98,15 @@
         nnoremap df :bp<CR>
 
         " tagbar stuff
-        nnoremap <TAB>t :TagbarToggle<CR>
+        nnoremap <C-t> :TagbarToggle<CR>
 
         " fugitive stuff
-        nnoremap <leader>gs :Gstatus
-        nnoremap <leader>gd :Gdiff
-        nnoremap <leader>gc :Gcommit
-        nnoremap <leader>gb :Gblame
-        nnoremap <leader>gl :Glog
-        nnoremap <leader>gp :Git push
+        nnoremap <leader>gs :Gstatus<CR>
+        nnoremap <leader>gd :Gdiff<CR>
+        nnoremap <leader>gc :Gcommit<CR>
+        nnoremap <leader>gb :Gblame<CR>
+        nnoremap <leader>gl :Glog<CR>
+        nnoremap <leader>gp :Git push<CR>
 " }
 
 " Vim UI {
@@ -148,4 +143,8 @@ if has("autocmd")
         autocmd BufWrite /private/tmp/crontab.* set nowritebackup
         " Don't write backup file if vim is being called by "chpass"
         autocmd BufWrite /private/etc/pw.* set nowritebackup
+        " Set syntax highlight for .hamlc as .haml
+        autocmd BufRead,BufNewFile *.hamlc set ft=haml
+        " Display warning when file is changed on disk
+        autocmd FileChangedShell * echo "Warning: File changed on disk"
 endif
