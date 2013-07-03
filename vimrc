@@ -14,16 +14,17 @@
         " My bundles
         Bundle 'mileszs/ack.vim'
         Bundle 'scrooloose/nerdtree'
-        Bundle 'fholgado/minibufexpl.vim'
         Bundle 'majutsushi/tagbar'
         Bundle 'tpope/vim-fugitive'
-        Bundle 'tpope/vim-rails'
         Bundle 'kien/ctrlp.vim'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/syntastic'
         Bundle 'jistr/vim-nerdtree-tabs'
         Bundle 'tpope/vim-surround'
         Bundle 'kchmck/vim-coffee-script'
+        Bundle 'lunaru/vim-less'
+        Bundle 'Shougo/vimproc.vim'
+        Bundle 'Shougo/unite.vim'
 
         filetype plugin indent on                     " required!
         
@@ -76,10 +77,6 @@
         inoremap <left> <nop>
         inoremap <right> <nop>
 
-        " fast split screen
-        nnoremap <leader>v <C-w><C-v>
-        nnoremap <leader>s <C-w><C-s>
-
         " switch between windows
         nnoremap <C-h> <C-w>h
         nnoremap <C-j> <C-w>j
@@ -89,24 +86,44 @@
         " markdown to html
         nnoremap <leader>md :read! markdown %:p > %:p:r.html<CR>
 
-        " NERDTree stuff
+        " NERDTree
         nnoremap <C-n> :NERDTreeMirrorToggle<CR>
 
-        " buffer stuff
-        nnoremap <leader>b :ls<CR>:b<Space>
+        " buffer
         nnoremap fd :bn<CR>
         nnoremap df :bp<CR>
 
-        " tagbar stuff
+        " tagbar
         nnoremap <C-t> :TagbarToggle<CR>
 
-        " fugitive stuff
+        " fugitive
         nnoremap <leader>gs :Gstatus<CR>
         nnoremap <leader>gd :Gdiff<CR>
         nnoremap <leader>gc :Gcommit<CR>
         nnoremap <leader>gb :Gblame<CR>
         nnoremap <leader>gl :Glog<CR>
         nnoremap <leader>gp :Git push<CR>
+
+        " ack
+        nnoremap <leader>/ :Ack<SPACE>
+
+        " unite
+        let g:unite_source_history_yank_enable = 1
+        call unite#filters#matcher_default#use(['matcher_fuzzy'])
+        "nnoremap <C-p>      :Unite file_rec/async<CR>
+        "nnoremap <leader>/  :Unite grep:.<CR>
+        nnoremap <leader>y  :Unite history/yank<CR>
+        nnoremap <leader>b  :Unite -quick-match buffer<CR>
+        
+        " Custom mappings for the unite buffer
+        autocmd FileType unite call s:unite_settings()
+        function! s:unite_settings()
+                " Play nice with supertab
+                let b:SuperTabDisabled=1
+                " Enable navigation with control-j and control-k in insert mode
+                imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+                imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+        endfunction
 " }
 
 " Vim UI {
