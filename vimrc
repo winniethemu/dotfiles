@@ -48,11 +48,17 @@
         set shiftwidth=2                              " insert 2 spaces for indentation
         set expandtab                                 " insert spaces when press tab
 
+        autocmd FileType python setlocal shiftwidth=4 tabstop=4
         autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8
         autocmd FileType sh,csh,zsh setlocal shiftwidth=8 tabstop=8
 " }
 
 " General {
+        set encoding=utf-8
+        set smartcase
+        set incsearch                                 " search as you type
+        set list
+        set listchars=tab:▸\ ,trail:▫
         set backspace=indent,eol,start                " make backspace a more flexible
         set backup                                    " make backup files
         set backupdir=~/.vim/backup                   " where to put backup files
@@ -128,10 +134,11 @@
 
 " Vim UI {
         set laststatus=2                              " always show the status line
-        set sidescrolloff=10                          " Keep 5 lines at the size
+        set sidescrolloff=10                          " keep 5 lines at the size
         set number                                    " turn on line numbers
-        set ruler                                     " Always show current positions along the bottom
+        set ruler                                     " always show current positions along the bottom
         set showmatch                                 " show matching brackets
+        set colorcolumn=80                            " display a line length marker
 " }
 
 " GUI Settings {
@@ -155,7 +162,7 @@
 
 if has("autocmd")
         " Run vimrc immediately after updating it
-        autocmd BufWritePost .vimrc source $MYVIMRC
+        " autocmd BufWritePost .vimrc source $MYVIMRC
         " Don't write backup file if vim is being called by "crontab -e"
         autocmd BufWrite /private/tmp/crontab.* set nowritebackup
         " Don't write backup file if vim is being called by "chpass"
