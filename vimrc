@@ -10,7 +10,7 @@
         " Let Vundle manage Vundle (required!)
         " NOTE: comments after Bundle command are not allowed..
         Bundle 'gmarik/vundle'
-        
+
         " My bundles
         Bundle 'mileszs/ack.vim'
         Bundle 'scrooloose/nerdtree'
@@ -25,9 +25,10 @@
         Bundle 'lunaru/vim-less'
         Bundle 'Shougo/vimproc.vim'
         Bundle 'Shougo/unite.vim'
+        Bundle 'terryma/vim-multiple-cursors'
 
         filetype plugin indent on                     " required!
-        
+
         " Brief help
         " :BundleList           - list configured bundles
         " :BundleInstall(!)     - install (update) bundles
@@ -64,6 +65,8 @@
         set backupdir=~/.vim/backup                   " where to put backup files
         set clipboard+=unnamed                        " share windows clipboard
         set directory=~/.vim/tmp                      " directory to place swap files in
+        set wildmode=longest,list,full
+        set wildmenu
         let mapleader=','
 " }
 
@@ -114,13 +117,13 @@
         nnoremap <leader>/ :Ack<SPACE>
 
         " unite
-        let g:unite_source_history_yank_enable = 1
+        let g:unite_source_history_yank_enable=1
         call unite#filters#matcher_default#use(['matcher_fuzzy'])
-        "nnoremap <C-p>      :Unite file_rec/async<CR>
-        "nnoremap <leader>/  :Unite grep:.<CR>
-        nnoremap <leader>y  :Unite history/yank<CR>
-        nnoremap <leader>b  :Unite -quick-match buffer<CR>
-        
+        "nnoremap <C-p> :Unite file_rec/async<CR>
+        "nnoremap <leader>/ :Unite grep:.<CR>
+        nnoremap <leader>y :Unite history/yank<CR>
+        nnoremap <leader>b :Unite -quick-match buffer<CR>
+
         " Custom mappings for the unite buffer
         autocmd FileType unite call s:unite_settings()
         function! s:unite_settings()
@@ -130,6 +133,11 @@
                 imap <buffer> <C-j>   <Plug>(unite_select_next_line)
                 imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
         endfunction
+
+        " vim-multiple-cursors
+        let g:multi_cursor_use_default_mapping=0      " reserve <C-n> for NerdTree
+        let g:multi_cursor_next_key='<C-m>'
+        let g:multi_cursor_quit_key='<ESC>'
 " }
 
 " Vim UI {
