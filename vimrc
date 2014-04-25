@@ -51,7 +51,7 @@
 
         autocmd FileType python setlocal shiftwidth=4 tabstop=4
         autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8
-        autocmd FileType sh,csh,zsh setlocal shiftwidth=8 tabstop=8
+        autocmd FileType sh,csh,zsh,vim setlocal shiftwidth=8 tabstop=8
 " }
 
 " General {
@@ -133,11 +133,6 @@
                 imap <buffer> <C-j>   <Plug>(unite_select_next_line)
                 imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
         endfunction
-
-        " vim-multiple-cursors
-        let g:multi_cursor_use_default_mapping=0      " reserve <C-n> for NerdTree
-        let g:multi_cursor_next_key='<C-m>'
-        let g:multi_cursor_quit_key='<ESC>'
 " }
 
 " Vim UI {
@@ -147,6 +142,34 @@
         set ruler                                     " always show current positions along the bottom
         set showmatch                                 " show matching brackets
         set colorcolumn=80                            " display a line length marker
+" }
+
+" Plug-in Settings {
+        let g:syntastic_javascript_checker='jshint'
+
+        " ctrlp
+        let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git\|.pyc\|.o\|.orig'
+
+        " vim-multiple-cursors
+        let g:multi_cursor_use_default_mapping=0      " reserve <C-n> for NerdTree
+        let g:multi_cursor_next_key='<C-m>'
+        let g:multi_cursor_quit_key='<ESC>'
+
+        if executable('coffeetags')
+                let g:tagbar_type_coffee = {
+                        \ 'ctagsbin' : 'coffeetags',
+                        \ 'ctagsargs' : '',
+                        \ 'kinds' : [
+                        \ 'f:functions',
+                        \ 'o:object',
+                        \ ],
+                        \ 'sro' : ".",
+                        \ 'kind2scope' : {
+                        \ 'f' : 'object',
+                        \ 'o' : 'object',
+                        \ }
+                \ }
+        endif
 " }
 
 " GUI Settings {
@@ -159,6 +182,11 @@
                         set guioptions=egmrt          " hide the toolbar in MacVim
                 endif
         endif
+" }
+
+" Custom Helpers {
+        function! WipeOutExtraBuffers()
+        endfunction
 " }
 
 " When editing a file, always jump to the last cursor position autocmd BufReadPost *
