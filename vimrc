@@ -101,6 +101,7 @@
         " buffer
         nnoremap fd :bn<CR>
         nnoremap df :bp<CR>
+        nnoremap <leader>bw :call WipeOutHiddenBuffers()<CR>
 
         " tagbar
         nnoremap <C-t> :TagbarToggle<CR>
@@ -185,7 +186,22 @@
 " }
 
 " Custom Helpers {
-        function! WipeOutExtraBuffers()
+        function! WipeOutHiddenBuffers()
+                " Get a list of all active buffers in all tabs
+                let l:active_buffers = []
+                for i in range(1, tabpagenr('$'))
+                        call extend(l:active_buffers, tabpagebuflist(i))
+                endfor
+
+                " Delete any buffer that is loaded but not active
+                let l:delete_count = 0
+                for j in range(1, bufnr('$'))
+                        if buflisted(j) && index(l:active_buffers, j) < 0
+                                execute 'bwipeout ' . j
+                                let l:delete_count += 1
+                        endif
+                endfor
+                echom l:delete_count . ' buffer(s) deleted.'
         endfunction
 " }
 
