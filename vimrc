@@ -158,18 +158,18 @@
 
         if executable('coffeetags')
                 let g:tagbar_type_coffee = {
-                        \ 'ctagsbin' : 'coffeetags',
-                        \ 'ctagsargs' : '',
-                        \ 'kinds' : [
-                        \ 'f:functions',
-                        \ 'o:object',
-                        \ ],
-                        \ 'sro' : ".",
-                        \ 'kind2scope' : {
-                        \ 'f' : 'object',
-                        \ 'o' : 'object',
-                        \ }
-                \ }
+                        'ctagsbin': 'coffeetags',
+                        'ctagsargs': '',
+                        'kinds': [
+                                'f:functions',
+                                'o:object',
+                        ],
+                        'sro': ".",
+                        'kind2scope' : {
+                                'f': 'object',
+                                'o': 'object',
+                        }
+                }
         endif
 " }
 
@@ -185,7 +185,7 @@
         endif
 " }
 
-" Event Callbacks {
+" Event Handlers {
         if has("autocmd")
                 " Run vimrc immediately after updating it
                 " autocmd BufWritePost .vimrc source $MYVIMRC
