@@ -185,6 +185,23 @@
         endif
 " }
 
+" Event Callbacks {
+        if has("autocmd")
+                " Run vimrc immediately after updating it
+                " autocmd BufWritePost .vimrc source $MYVIMRC
+                " When editing a file, always jump to the last cursor position
+                autocmd BufReadPost * :call JumpToLastCursorPosition()
+                " Don't write backup file if vim is being called by "crontab -e"
+                autocmd BufWrite /private/tmp/crontab.* set nowritebackup
+                " Don't write backup file if vim is being called by "chpass"
+                autocmd BufWrite /private/etc/pw.* set nowritebackup
+                " Set syntax highlight for .hamlc as .haml
+                autocmd BufRead,BufNewFile *.hamlc set ft=haml
+                " Display warning when file is changed on disk
+                autocmd FileChangedShell * echo "Warning: File changed on disk"
+        endif
+" }
+
 " Custom Helpers {
         function! WipeOutHiddenBuffers()
                 " Get a list of all active buffers in all tabs
@@ -203,24 +220,12 @@
                 endfor
                 echom l:delete_count . ' buffer(s) deleted.'
         endfunction
+
+        function! JumpToLastCursorPosition()
+                if !exists("g:leave_my_cursor_position_alone")
+                        if line("'\"") > 0 && line ("'\"") <= line("$")
+                                exe "normal g'\""
+                        endif
+                endif
+        endfunction
 " }
-
-" When editing a file, always jump to the last cursor position autocmd BufReadPost *
-        \ if ! exists("g:leave_my_cursor_position_alone") |
-        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-        \ exe "normal g'\"" |
-        \ endif |
-        \ endif
-
-if has("autocmd")
-        " Run vimrc immediately after updating it
-        " autocmd BufWritePost .vimrc source $MYVIMRC
-        " Don't write backup file if vim is being called by "crontab -e"
-        autocmd BufWrite /private/tmp/crontab.* set nowritebackup
-        " Don't write backup file if vim is being called by "chpass"
-        autocmd BufWrite /private/etc/pw.* set nowritebackup
-        " Set syntax highlight for .hamlc as .haml
-        autocmd BufRead,BufNewFile *.hamlc set ft=haml
-        " Display warning when file is changed on disk
-        autocmd FileChangedShell * echo "Warning: File changed on disk"
-endif
