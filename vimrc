@@ -76,7 +76,7 @@
         nnoremap j gj
         nnoremap q b
 
-        " disable arrow keys to learn hjkl
+        " Disable arrow keys to learn hjkl
         nnoremap <up> <nop>
         nnoremap <down> <nop>
         nnoremap <left> <nop>
@@ -86,38 +86,24 @@
         inoremap <left> <nop>
         inoremap <right> <nop>
 
-        " switch between windows
+        " Switch between windows
         nnoremap <C-h> <C-w>h
         nnoremap <C-j> <C-w>j
         nnoremap <C-k> <C-w>k
         nnoremap <C-l> <C-w>l
 
-        " markdown to html
-        nnoremap <leader>md :read! markdown %:p > %:p:r.html<CR>
-
         " NERDTree
         nnoremap <C-n> :NERDTreeMirrorToggle<CR>
 
-        " buffer
+        " Buffer-related
         nnoremap fd :bn<CR>
         nnoremap df :bp<CR>
         nnoremap <leader>bw :call WipeOutHiddenBuffers()<CR>
 
-        " tagbar
+        " Tagbar
         nnoremap <C-t> :TagbarToggle<CR>
 
-        " fugitive
-        nnoremap <leader>gs :Gstatus<CR>
-        nnoremap <leader>gd :Gdiff<CR>
-        nnoremap <leader>gc :Gcommit<CR>
-        nnoremap <leader>gb :Gblame<CR>
-        nnoremap <leader>gl :Glog<CR>
-        nnoremap <leader>gp :Git push<CR>
-
-        " ack
-        nnoremap <leader>/ :Ack<SPACE>
-
-        " unite
+        " Unite
         let g:unite_source_history_yank_enable=1
         call unite#filters#matcher_default#use(['matcher_fuzzy'])
         "nnoremap <C-p> :Unite file_rec/async<CR>
@@ -143,7 +129,6 @@
         set ruler                                     " always show current positions along the bottom
         set showmatch                                 " show matching brackets
         set colorcolumn=80                            " display a line length marker
-        colorscheme smyck                             " set color scheme
 " }
 
 " Plug-in Settings {
