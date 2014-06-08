@@ -143,6 +143,7 @@
         set ruler                                     " always show current positions along the bottom
         set showmatch                                 " show matching brackets
         set colorcolumn=80                            " display a line length marker
+        colorscheme smyck                             " set color scheme
 " }
 
 " Plug-in Settings {
@@ -158,18 +159,12 @@
 
         if executable('coffeetags')
                 let g:tagbar_type_coffee = {
-                        'ctagsbin': 'coffeetags',
-                        'ctagsargs': '',
-                        'kinds': [
-                                'f:functions',
-                                'o:object',
-                        ],
-                        'sro': ".",
-                        'kind2scope' : {
-                                'f': 'object',
-                                'o': 'object',
-                        }
-                }
+                        \ 'ctagsbin': 'coffeetags',
+                        \ 'ctagsargs': '',
+                        \ 'kinds': ['f:functions', 'o:object'],
+                        \ 'sro': ".",
+                        \ 'kind2scope' : { 'f': 'object', 'o': 'object' }
+                \ }
         endif
 " }
 
