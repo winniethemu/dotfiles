@@ -26,6 +26,7 @@
         Bundle 'Shougo/vimproc.vim'
         Bundle 'Shougo/unite.vim'
         Bundle 'terryma/vim-multiple-cursors'
+        Bundle 'nvie/vim-flake8'
 
         filetype plugin indent on                     " required!
 
@@ -63,11 +64,15 @@
         set backspace=indent,eol,start                " make backspace a more flexible
         set backup                                    " make backup files
         set backupdir=~/.vim/backup                   " where to put backup files
-        set clipboard+=unnamed                        " share windows clipboard
         set directory=~/.vim/tmp                      " directory to place swap files in
         set wildmode=longest,list,full
         set wildmenu
         let mapleader=','
+
+        " Otherwise yank/paste breaks when running inside tmux
+        if $TMUX == ''
+                set clipboard+=unnamed                " share windows clipboard
+        endif
 " }
 
 " Key Mapping {
@@ -133,6 +138,7 @@
 
 " Plug-in Settings {
         let g:syntastic_javascript_checker='jshint'
+        let g:NERDTreeWinSize=40
 
         " ctrlp
         let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git\|.pyc\|.o\|.orig'
