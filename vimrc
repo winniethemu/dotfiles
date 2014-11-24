@@ -27,6 +27,7 @@
         Bundle 'Shougo/unite.vim'
         Bundle 'terryma/vim-multiple-cursors'
         Bundle 'nvie/vim-flake8'
+        Bundle 'nathanaelkane/vim-indent-guides'
 
         filetype plugin indent on                     " required!
 
@@ -157,6 +158,10 @@
                         \ 'kind2scope' : { 'f': 'object', 'o': 'object' }
                 \ }
         endif
+        
+        " vim-indent-guides
+        let g:indent_guides_start_level=2
+        let g:indent_guides_guide_size=1
 " }
 
 " GUI Settings {
