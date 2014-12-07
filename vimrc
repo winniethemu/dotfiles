@@ -142,7 +142,11 @@
         let g:NERDTreeWinSize=40
 
         " ctrlp
-        let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git\|.pyc\|.o\|.orig'
+        let g:ctrlp_working_path_mode='ra'
+        let g:ctrlp_custom_ignore = {
+                \ 'dir': '\v[\/]\.(git|hg|svn)|node_modules|bower_components$',
+                \ 'file': '\v\.(DS_Store|o|pyc|orig)',
+        \ }
 
         " vim-multiple-cursors
         let g:multi_cursor_use_default_mapping=0      " reserve <C-n> for NerdTree
@@ -158,11 +162,11 @@
                         \ 'kind2scope' : { 'f': 'object', 'o': 'object' }
                 \ }
         endif
-        
+
         " vim-indent-guides
         let g:indent_guides_start_level=2
         let g:indent_guides_guide_size=1
-        
+
         " nerdcommenter
         let g:NERDSpaceDelims=1
 " }
@@ -193,6 +197,8 @@
                 autocmd BufRead,BufNewFile *.hamlc set ft=haml
                 " Display warning when file is changed on disk
                 autocmd FileChangedShell * echo "Warning: File changed on disk"
+                " Check Python syntax against PEP8
+                autocmd BufWritePost *.py call Flake8()
         endif
 " }
 
