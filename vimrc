@@ -1,9 +1,9 @@
 " Configuration file for vim
-        set nomodeline                                " CVE-2007-2438
-        set nocompatible                              " explicitly get out of vi-compatible mode
+        set nomodeline                                  " CVE-2007-2438
+        set nocompatible                                " explicitly get out of vi-compatible mode
 
 " Plugin Management {
-        filetype off                                  " required!
+        filetype off                                    " required!
         set rtp+=~/.vim/bundle/vundle/
         call vundle#rc()
 
@@ -29,7 +29,7 @@
         Bundle 'nvie/vim-flake8'
         Bundle 'nathanaelkane/vim-indent-guides'
 
-        filetype plugin indent on                     " required!
+        filetype plugin indent on                       " required!
 
         " Brief help
         " :BundleList           - list configured bundles
@@ -39,17 +39,18 @@
 " }
 
 " Basics {
-        syntax on                                     " syntax highlighting on
-        set noexrc                                    " don't use local version of .(g)vimrc, .exrc
-        set ai                                        " auto indenting
-        set hlsearch                                  " highlight the last searched term
-        set background=dark                           " we plan to use a dark background
-        set history=100                               " keep 100 lines of history
-        set mouse=a                                   " enable mouse usage (all modes)
-        set backspace=2                               " more powerful backspacing
-        set tabstop=2                                 " insert 2 spaces for a tab
-        set shiftwidth=2                              " insert 2 spaces for indentation
-        set expandtab                                 " insert spaces when press tab
+        syntax on                                       " syntax highlighting on
+        set noexrc                                      " don't use local version of .(g)vimrc, .exrc
+        set ai                                          " auto indenting
+        set hlsearch                                    " highlight the last searched term
+        set background=dark                             " we plan to use a dark background
+        set history=100                                 " keep 100 lines of history
+        set mouse=a                                     " enable mouse usage (all modes)
+        set backspace=2                                 " more powerful backspacing
+        set tabstop=2                                   " insert 2 spaces for a tab
+        set shiftwidth=2                                " insert 2 spaces for indentation
+        set expandtab                                   " insert spaces when press tab
+        colorscheme desert                              " set color scheme
 
         autocmd FileType python setlocal shiftwidth=4 tabstop=4
         autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8
@@ -59,20 +60,20 @@
 " General {
         set encoding=utf-8
         set smartcase
-        set incsearch                                 " search as you type
+        set incsearch                                   " search as you type
         set list
         set listchars=tab:▸\ ,trail:▫
-        set backspace=indent,eol,start                " make backspace a more flexible
-        set backup                                    " make backup files
-        set backupdir=~/.vim/backup                   " where to put backup files
-        set directory=~/.vim/tmp                      " directory to place swap files in
+        set backspace=indent,eol,start                  " make backspace a more flexible
+        set backup                                      " make backup files
+        set backupdir=~/.vim/backup                     " where to put backup files
+        set directory=~/.vim/tmp                        " directory to place swap files in
         set wildmode=longest,list,full
         set wildmenu
         let mapleader=','
 
         " Otherwise yank/paste breaks when running inside tmux
         if $TMUX == ''
-                set clipboard+=unnamed                " share windows clipboard
+                set clipboard+=unnamed                  " share windows clipboard
         endif
 " }
 
@@ -129,12 +130,12 @@
 " }
 
 " Vim UI {
-        set laststatus=2                              " always show the status line
-        set sidescrolloff=10                          " keep 5 lines at the size
-        set number                                    " turn on line numbers
-        set ruler                                     " always show current positions along the bottom
-        set showmatch                                 " show matching brackets
-        set colorcolumn=80                            " display a line length marker
+        set laststatus=2                                " always show the status line
+        set sidescrolloff=10                            " keep 5 lines at the size
+        set number                                      " turn on line numbers
+        set ruler                                       " always show current positions along the bottom
+        set showmatch                                   " show matching brackets
+        set colorcolumn=80                              " display a line length marker
 " }
 
 " Plug-in Settings {
@@ -173,12 +174,12 @@
 
 " GUI Settings {
         if has("gui_running")
-                colorscheme smyck                     " set color scheme
-                set guifont=Menlo:h11                 " set font
-                set mousehide                         " hide the mouse cursor when typing
+                colorscheme smyck                       " set color scheme
+                set guifont=Menlo:h11                   " set font
+                set mousehide                           " hide the mouse cursor when typing
                 if has("gui_macvim")
-                        set transparency=2            " set transparency if possible
-                        set guioptions=egmrt          " hide the toolbar in MacVim
+                        set transparency=2              " set transparency if possible
+                        set guioptions=egmrt            " hide the toolbar in MacVim
                 endif
         endif
 " }
