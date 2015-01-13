@@ -50,7 +50,7 @@
         set tabstop=2                                   " insert 2 spaces for a tab
         set shiftwidth=2                                " insert 2 spaces for indentation
         set expandtab                                   " insert spaces when press tab
-        colorscheme desert                              " set color scheme
+        colorscheme smyck                               " set color scheme
 
         autocmd FileType python setlocal shiftwidth=4 tabstop=4
         autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8
@@ -150,7 +150,7 @@
         \ }
 
         " vim-multiple-cursors
-        let g:multi_cursor_use_default_mapping=0      " reserve <C-n> for NerdTree
+        let g:multi_cursor_use_default_mapping=0        " reserve <C-n> for NerdTree
         let g:multi_cursor_next_key='<C-m>'
         let g:multi_cursor_quit_key='<ESC>'
 
