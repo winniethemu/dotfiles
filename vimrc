@@ -50,11 +50,10 @@
         set tabstop=2                                   " insert 2 spaces for a tab
         set shiftwidth=2                                " insert 2 spaces for indentation
         set expandtab                                   " insert spaces when press tab
-        colorscheme smyck                               " set color scheme
 
         autocmd FileType python setlocal shiftwidth=4 tabstop=4
         autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8
-        autocmd FileType sh,csh,zsh,vim setlocal shiftwidth=8 tabstop=8
+        autocmd FileType sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8
 " }
 
 " General {
@@ -136,6 +135,8 @@
         set ruler                                       " always show current positions along the bottom
         set showmatch                                   " show matching brackets
         set colorcolumn=80                              " display a line length marker
+        set t_Co=256                                    " enable 256 colors
+        colorscheme smyck                               " set color scheme
 " }
 
 " Plug-in Settings {
@@ -174,11 +175,10 @@
 
 " GUI Settings {
         if has("gui_running")
-                colorscheme smyck                       " set color scheme
-                set guifont=Menlo:h11                   " set font
+                set guifont=Menlo:h12
                 set mousehide                           " hide the mouse cursor when typing
                 if has("gui_macvim")
-                        set transparency=2              " set transparency if possible
+                        set transparency=2
                         set guioptions=egmrt            " hide the toolbar in MacVim
                 endif
         endif
