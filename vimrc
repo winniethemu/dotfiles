@@ -15,15 +15,16 @@
         Bundle 'mileszs/ack.vim'
         Bundle 'scrooloose/nerdtree'
         Bundle 'majutsushi/tagbar'
-        Bundle 'tpope/vim-fugitive'
+        " Bundle 'tpope/vim-fugitive'
         Bundle 'kien/ctrlp.vim'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/syntastic'
         Bundle 'jistr/vim-nerdtree-tabs'
         Bundle 'tpope/vim-surround'
-        Bundle 'kchmck/vim-coffee-script'
+        " Bundle 'kchmck/vim-coffee-script'
         Bundle 'lunaru/vim-less'
-        Bundle 'Shougo/vimproc.vim'
+        Bundle 'wlangstroth/vim-racket'
+        " Bundle 'Shougo/vimproc.vim'
         Bundle 'Shougo/unite.vim'
         Bundle 'terryma/vim-multiple-cursors'
         Bundle 'nvie/vim-flake8'
@@ -48,12 +49,13 @@
         set mouse=a                                     " enable mouse usage (all modes)
         set backspace=2                                 " more powerful backspacing
         set tabstop=2                                   " insert 2 spaces for a tab
+        set softtabstop=2                               " delete 2 spaces at a time
         set shiftwidth=2                                " insert 2 spaces for indentation
         set expandtab                                   " insert spaces when press tab
 
-        autocmd FileType python setlocal shiftwidth=4 tabstop=4
-        autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8
-        autocmd FileType sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8
+        autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
+        autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8 softtabstop=8
+        autocmd FileType sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8 softtabstop=8
 " }
 
 " General {
@@ -136,12 +138,15 @@
         set showmatch                                   " show matching brackets
         set colorcolumn=80                              " display a line length marker
         set t_Co=256                                    " enable 256 colors
-        colorscheme smyck                               " set color scheme
+        colorscheme smyck
 " }
 
 " Plug-in Settings {
+        let g:flake8_show_quickfix=0
+        let g:flake8_show_in_gutter=1
         let g:syntastic_javascript_checker='jshint'
-        let g:NERDTreeWinSize=40
+        let g:NERDTreeWinSize=35
+        let g:tagbar_width=35
 
         " ctrlp
         let g:ctrlp_working_path_mode='ra'
