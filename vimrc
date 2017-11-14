@@ -12,23 +12,20 @@
         Bundle 'gmarik/vundle'
 
         " My bundles
-        Bundle 'mileszs/ack.vim'
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'majutsushi/tagbar'
-        " Bundle 'tpope/vim-fugitive'
-        Bundle 'kien/ctrlp.vim'
-        Bundle 'scrooloose/nerdcommenter'
-        Bundle 'scrooloose/syntastic'
         Bundle 'jistr/vim-nerdtree-tabs'
-        Bundle 'tpope/vim-surround'
-        " Bundle 'kchmck/vim-coffee-script'
+        Bundle 'kien/ctrlp.vim'
         Bundle 'lunaru/vim-less'
-        Bundle 'wlangstroth/vim-racket'
-        " Bundle 'Shougo/vimproc.vim'
-        Bundle 'Shougo/unite.vim'
-        Bundle 'terryma/vim-multiple-cursors'
-        Bundle 'nvie/vim-flake8'
+        Bundle 'majutsushi/tagbar'
+        Bundle 'mileszs/ack.vim'
         Bundle 'nathanaelkane/vim-indent-guides'
+        Bundle 'nvie/vim-flake8'
+        Bundle 'pangloss/vim-javascript'
+        Bundle 'scrooloose/nerdcommenter'
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'scrooloose/syntastic'
+        Bundle 'terryma/vim-multiple-cursors'
+        Bundle 'tpope/vim-surround'
+        Bundle 'wlangstroth/vim-racket'
 
         filetype plugin indent on                       " required!
 
@@ -110,24 +107,6 @@
 
         " Tagbar
         nnoremap <C-t> :TagbarToggle<CR>
-
-        " Unite
-        let g:unite_source_history_yank_enable=1
-        call unite#filters#matcher_default#use(['matcher_fuzzy'])
-        "nnoremap <C-p> :Unite file_rec/async<CR>
-        "nnoremap <leader>/ :Unite grep:.<CR>
-        nnoremap <leader>y :Unite history/yank<CR>
-        nnoremap <leader>b :Unite -quick-match buffer<CR>
-
-        " Custom mappings for the unite buffer
-        autocmd FileType unite call s:unite_settings()
-        function! s:unite_settings()
-                " Play nice with supertab
-                let b:SuperTabDisabled=1
-                " Enable navigation with control-j and control-k in insert mode
-                imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-                imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-        endfunction
 " }
 
 " Vim UI {
@@ -138,13 +117,14 @@
         set showmatch                                   " show matching brackets
         set colorcolumn=80                              " display a line length marker
         set t_Co=256                                    " enable 256 colors
-        colorscheme smyck
+        " colorscheme smyck
 " }
 
 " Plug-in Settings {
         let g:flake8_show_quickfix=0
         let g:flake8_show_in_gutter=1
-        let g:syntastic_javascript_checker='jshint'
+        let g:syntastic_javascript_checkers=['jshint']
+        let g:syntastic_typescript_checkers=['tslint']
         let g:NERDTreeWinSize=35
         let g:tagbar_width=35
 
