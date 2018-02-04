@@ -12,19 +12,18 @@
         Bundle 'gmarik/vundle'
 
         " My bundles
-        Bundle 'jistr/vim-nerdtree-tabs'
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'scrooloose/nerdcommenter'
         Bundle 'kien/ctrlp.vim'
-        Bundle 'lunaru/vim-less'
         Bundle 'majutsushi/tagbar'
         Bundle 'mileszs/ack.vim'
-        Bundle 'nathanaelkane/vim-indent-guides'
-        Bundle 'nvie/vim-flake8'
-        Bundle 'pangloss/vim-javascript'
-        Bundle 'scrooloose/nerdcommenter'
-        Bundle 'scrooloose/nerdtree'
         Bundle 'scrooloose/syntastic'
         Bundle 'terryma/vim-multiple-cursors'
         Bundle 'tpope/vim-surround'
+        Bundle 'nathanaelkane/vim-indent-guides'
+        Bundle 'lunaru/vim-less'
+        Bundle 'nvie/vim-flake8'
+        Bundle 'pangloss/vim-javascript'
         Bundle 'wlangstroth/vim-racket'
 
         filetype plugin indent on                       " required!
@@ -123,8 +122,11 @@
 " Plug-in Settings {
         let g:flake8_show_quickfix=0
         let g:flake8_show_in_gutter=1
+
         let g:syntastic_javascript_checkers=['jshint']
         let g:syntastic_typescript_checkers=['tslint']
+        let g:syntastic_enable_racket_racket_checker=1
+
         let g:NERDTreeWinSize=35
         let g:tagbar_width=35
 
