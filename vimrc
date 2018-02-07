@@ -13,6 +13,7 @@
 
         " My bundles
         Bundle 'scrooloose/nerdtree'
+        Bundle 'jistr/vim-nerdtree-tabs'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'kien/ctrlp.vim'
         Bundle 'majutsushi/tagbar'
