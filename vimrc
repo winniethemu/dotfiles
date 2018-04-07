@@ -4,36 +4,37 @@
 
 " Plugin Management {
         filetype off                                    " required!
-        set rtp+=~/.vim/bundle/vundle/
-        call vundle#rc()
+        set rtp+=~/.vim/bundle/Vundle.vim/
+        call vundle#begin()
 
         " Let Vundle manage Vundle (required!)
         " NOTE: comments after Bundle command are not allowed..
-        Bundle 'gmarik/vundle'
+        Plugin 'VundleVim/Vundle.vim'
 
         " My bundles
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'jistr/vim-nerdtree-tabs'
-        Bundle 'scrooloose/nerdcommenter'
-        Bundle 'kien/ctrlp.vim'
-        Bundle 'majutsushi/tagbar'
-        Bundle 'mileszs/ack.vim'
-        Bundle 'terryma/vim-multiple-cursors'
-        Bundle 'tpope/vim-surround'
-        Bundle 'nathanaelkane/vim-indent-guides'
-        Bundle 'scrooloose/syntastic'
-        Bundle 'nvie/vim-flake8'
-        Bundle 'lunaru/vim-less'
-        Bundle 'pangloss/vim-javascript'
-        Bundle 'wlangstroth/vim-racket'
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'jistr/vim-nerdtree-tabs'
+        Plugin 'scrooloose/nerdcommenter'
+        Plugin 'kien/ctrlp.vim'
+        Plugin 'majutsushi/tagbar'
+        Plugin 'mileszs/ack.vim'
+        Plugin 'terryma/vim-multiple-cursors'
+        Plugin 'tpope/vim-surround'
+        Plugin 'nathanaelkane/vim-indent-guides'
+        Plugin 'scrooloose/syntastic'
+        Plugin 'nvie/vim-flake8'
+        Plugin 'lunaru/vim-less'
+        Plugin 'pangloss/vim-javascript'
+        Plugin 'wlangstroth/vim-racket'
 
+        call vundle#end()
         filetype plugin indent on                       " required!
 
         " Brief help
-        " :BundleList           - list configured bundles
-        " :BundleInstall(!)     - install (update) bundles
-        " :BundleSearch(!) foo  - search (or refresh cache first) for foo
-        " :BundleClean(!)       - confirm (or auto-approve) removal of unused bundles
+        " :PluginList           - list configured bundles
+        " :PluginInstall(!)     - install (update) bundles
+        " :PluginSearch(!) foo  - search (or refresh cache first) for foo
+        " :PluginClean(!)       - confirm (or auto-approve) removal of unused bundles
 " }
 
 " Basics {
@@ -125,7 +126,6 @@
         let g:flake8_show_in_gutter=1
 
         let g:syntastic_javascript_checkers=['jshint']
-        let g:syntastic_typescript_checkers=['tslint']
         let g:syntastic_enable_racket_racket_checker=1
 
         let g:NERDTreeWinSize=35
