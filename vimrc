@@ -16,8 +16,6 @@
         Plugin 'jistr/vim-nerdtree-tabs'
         Plugin 'scrooloose/nerdcommenter'
         Plugin 'kien/ctrlp.vim'
-        Plugin 'majutsushi/tagbar'
-        Plugin 'mileszs/ack.vim'
         Plugin 'terryma/vim-multiple-cursors'
         Plugin 'tpope/vim-surround'
         Plugin 'nathanaelkane/vim-indent-guides'
@@ -99,9 +97,6 @@
         nnoremap fd :bn<CR>
         nnoremap df :bp<CR>
         nnoremap <leader>bw :call WipeOutHiddenBuffers()<CR>
-
-        " Tagbar
-        nnoremap <C-t> :TagbarToggle<CR>
 " }
 
 " Vim UI {
@@ -123,35 +118,20 @@
         let g:syntastic_enable_racket_racket_checker=1
 
         let g:NERDTreeWinSize=35
-        let g:tagbar_width=35
 
-        " ctrlp
         let g:ctrlp_working_path_mode='ra'
         let g:ctrlp_custom_ignore = {
                 \ 'dir': '\v[\/]\.(git|hg|svn)|node_modules|bower_components$',
                 \ 'file': '\v\.(DS_Store|o|pyc|orig)',
         \ }
 
-        " vim-multiple-cursors
         let g:multi_cursor_use_default_mapping=0        " reserve <C-n> for NerdTree
         let g:multi_cursor_next_key='<C-m>'
         let g:multi_cursor_quit_key='<ESC>'
 
-        if executable('coffeetags')
-                let g:tagbar_type_coffee = {
-                        \ 'ctagsbin': 'coffeetags',
-                        \ 'ctagsargs': '',
-                        \ 'kinds': ['f:functions', 'o:object'],
-                        \ 'sro': ".",
-                        \ 'kind2scope' : { 'f': 'object', 'o': 'object' }
-                \ }
-        endif
-
-        " vim-indent-guides
         let g:indent_guides_start_level=2
         let g:indent_guides_guide_size=1
 
-        " nerdcommenter
         let g:NERDSpaceDelims=1
 " }
 
