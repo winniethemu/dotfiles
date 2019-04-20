@@ -114,7 +114,7 @@
         let g:flake8_show_quickfix=0
         let g:flake8_show_in_gutter=1
 
-        let g:syntastic_javascript_checkers=['jshint']
+        let g:syntastic_javascript_checkers=['eslint']
         let g:syntastic_enable_racket_racket_checker=1
 
         let g:NERDTreeWinSize=35
