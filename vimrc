@@ -17,12 +17,14 @@
         Plugin 'scrooloose/nerdcommenter'
         Plugin 'kien/ctrlp.vim'
         Plugin 'terryma/vim-multiple-cursors'
-        Plugin 'tpope/vim-surround'
         Plugin 'nathanaelkane/vim-indent-guides'
         Plugin 'scrooloose/syntastic'
-        Plugin 'nvie/vim-flake8'
-        Plugin 'lunaru/vim-less'
+
         Plugin 'pangloss/vim-javascript'
+        Plugin 'maxmellon/vim-jsx-pretty'
+        Plugin 'lunaru/vim-less'
+
+        Plugin 'nvie/vim-flake8'
         Plugin 'wlangstroth/vim-racket'
 
         call vundle#end()
@@ -121,7 +123,7 @@
 
         let g:ctrlp_working_path_mode='ra'
         let g:ctrlp_custom_ignore = {
-                \ 'dir': '\v[\/]\.(git|hg|svn)|node_modules|bower_components$',
+                \ 'dir': '\v[\/]\.(git|hg|svn)|node_modules|dist|build|bower_components$',
                 \ 'file': '\v\.(DS_Store|o|pyc|orig)',
         \ }
 
