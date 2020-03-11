@@ -18,7 +18,7 @@
         Plugin 'kien/ctrlp.vim'
         Plugin 'terryma/vim-multiple-cursors'
         Plugin 'nathanaelkane/vim-indent-guides'
-        Plugin 'scrooloose/syntastic'
+        Plugin 'vim-syntastic/syntastic'
 
         Plugin 'pangloss/vim-javascript'
         Plugin 'maxmellon/vim-jsx-pretty'
