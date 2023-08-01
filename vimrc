@@ -42,7 +42,7 @@
         set noexrc                                      " don't use local version of .(g)vimrc, .exrc
         set ai                                          " auto indenting
         set hlsearch                                    " highlight the last searched term
-        set background=dark                             " we plan to use a dark background
+        " set background=dark                             " we plan to use a dark background
         set history=100                                 " keep 100 lines of history
         set mouse=a                                     " enable mouse usage (all modes)
         set backspace=2                                 " more powerful backspacing
@@ -107,9 +107,9 @@
         set number                                      " turn on line numbers
         set ruler                                       " always show current positions along the bottom
         set showmatch                                   " show matching brackets
-        set colorcolumn=80                              " display a line length marker
+        " set colorcolumn=80                              " display a line length marker
         set t_Co=256                                    " enable 256 colors
-        " colorscheme smyck
+        colorscheme paper
 " }
 
 " Plug-in Settings {
