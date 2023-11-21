@@ -51,9 +51,8 @@
         set shiftwidth=2                                " insert 2 spaces for indentation
         set expandtab                                   " insert spaces when press tab
 
-        autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
-        autocmd FileType c,cpp,java setlocal shiftwidth=8 tabstop=8 softtabstop=8
-        autocmd FileType sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8 softtabstop=8
+        autocmd FileType python,cpp,java setlocal shiftwidth=4 tabstop=4 softtabstop=4
+        autocmd FileType c,sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8 softtabstop=8
 " }
 
 " General {
@@ -119,7 +118,7 @@
         let g:syntastic_javascript_checkers=['eslint']
         let g:syntastic_enable_racket_racket_checker=1
 
-        let g:NERDTreeWinSize=35
+        let g:NERDTreeWinSize=30
 
         let g:ctrlp_working_path_mode='ra'
         let g:ctrlp_custom_ignore = {
