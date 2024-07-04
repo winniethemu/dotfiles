@@ -21,11 +21,9 @@
         Plugin 'vim-syntastic/syntastic'
 
         Plugin 'pangloss/vim-javascript'
-        Plugin 'maxmellon/vim-jsx-pretty'
-        Plugin 'lunaru/vim-less'
-
-        Plugin 'nvie/vim-flake8'
+        Plugin 'fatih/vim-go'
         Plugin 'wlangstroth/vim-racket'
+        Plugin 'nvie/vim-flake8'
 
         call vundle#end()
         filetype plugin indent on                       " required!
@@ -52,7 +50,7 @@
         set expandtab                                   " insert spaces when press tab
 
         autocmd FileType python,cpp,java setlocal shiftwidth=4 tabstop=4 softtabstop=4
-        autocmd FileType c,sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8 softtabstop=8
+        autocmd FileType c,go,sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8 softtabstop=8
 " }
 
 " General {
@@ -108,7 +106,7 @@
         set showmatch                                   " show matching brackets
         " set colorcolumn=80                              " display a line length marker
         set t_Co=256                                    " enable 256 colors
-        colorscheme paper
+        " colorscheme paper
 " }
 
 " Plug-in Settings {
