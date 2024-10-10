@@ -1,0 +1,12 @@
+[core]
+	autocrlf = false
+	safecrlf = true
+[pull]
+	ff = only
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
