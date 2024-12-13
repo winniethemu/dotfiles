@@ -50,7 +50,7 @@
         set expandtab                                   " insert spaces when press tab
 
         autocmd FileType python,cpp,java setlocal shiftwidth=4 tabstop=4 softtabstop=4
-        autocmd FileType c,sh,csh,zsh,vim,awk setlocal shiftwidth=8 tabstop=8 softtabstop=8
+        autocmd FileType awk,c,csh,go,sh,vim,zsh setlocal shiftwidth=8 tabstop=8 softtabstop=8
 " }
 
 " General {
