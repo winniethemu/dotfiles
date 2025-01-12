@@ -17,6 +17,7 @@ git clone https://github.com/winniethemu/dotfiles.git $CONFIG/dotfiles
 
 ln -s $DOTFILES/vimrc $HOME/.vimrc
 ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
+ln -s $DOTFILES/zshrc $HOME/.zshrc
 
 # Zsh plugins
 mkdir -p $ZSH
