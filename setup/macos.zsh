@@ -15,6 +15,7 @@ brew install reattach-to-user-namespace
 mkdir -p $CONFIG/dotfiles
 git clone https://github.com/winniethemu/dotfiles.git $CONFIG/dotfiles
 
+ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/vimrc $HOME/.vimrc
 ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES/zshrc $HOME/.zshrc
