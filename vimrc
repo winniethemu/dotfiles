@@ -107,7 +107,7 @@
         " colorscheme paper
 " }
 
-" Plug-in Settings {
+" Plugin Settings {
         let g:flake8_show_quickfix=0
         let g:flake8_show_in_gutter=1
 
@@ -149,12 +149,13 @@
                 autocmd BufWrite /private/tmp/crontab.* set nowritebackup
                 " Don't write backup file if vim is being called by "chpass"
                 autocmd BufWrite /private/etc/pw.* set nowritebackup
-                " Set syntax highlight for .hamlc as .haml
-                autocmd BufRead,BufNewFile *.hamlc set ft=haml
                 " Display warning when file is changed on disk
                 autocmd FileChangedShell * echo "Warning: File changed on disk"
                 " Check Python syntax against PEP8
                 autocmd BufWritePost *.py call Flake8()
+                " Show autocomplete prompt on pressing . for Go
+                autocmd FileType go inoremap <buffer> . .<C-x><C-o>
+
         endif
 " }
 
