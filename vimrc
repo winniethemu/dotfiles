@@ -104,7 +104,7 @@
         set showmatch                                   " show matching brackets
         " set colorcolumn=80                              " display a line length marker
         set t_Co=256                                    " enable 256 colors
-        " colorscheme paper
+        " colorscheme plan9
 " }
 
 " Plugin Settings {
