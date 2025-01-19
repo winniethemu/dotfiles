@@ -155,7 +155,8 @@
                 autocmd BufWritePost *.py call Flake8()
                 " Show autocomplete prompt on pressing . for Go
                 autocmd FileType go inoremap <buffer> . .<C-x><C-o>
-
+                " Check Go syntax on save
+                autocmd BufWritePost *.go :GoVet
         endif
 " }
 
