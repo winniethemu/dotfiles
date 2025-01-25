@@ -2,7 +2,7 @@
   "editor.bracketPairColorization.enabled": false,
   "editor.fontFamily": "Source Code Pro, Hack, monospace",
   "editor.fontSize": 14.4,
-  "editor.fontWeight": 500,
+  "editor.fontWeight": "500",
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
