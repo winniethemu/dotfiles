@@ -1,29 +1,35 @@
 {
   "editor.bracketPairColorization.enabled": false,
   "editor.fontFamily": "Source Code Pro, Hack, monospace",
-  "editor.fontSize": 14.4,
-  "editor.fontWeight": "500",
+  "editor.fontSize": 14,
+  "editor.fontWeight": 600,
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "trailing",
-  "editor.tabSize": 8,
+  "editor.tabSize": 2,
   "extensions.ignoreRecommendations": true,
   "git.openRepositoryInParentFolders": "never",
   "terminal.integrated.fontSize": 13,
-  "terminal.integrated.fontWeight": 500,
+  "terminal.integrated.fontWeight": 600,
   "workbench.colorTheme": "Chalice Solarized Light",
   "workbench.fontAliasing": "antialiased",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
-  "workbench.sideBar.location": "right",
+  "workbench.sideBar.location": "left",
   "[go]": {
-    "editor.insertSpaces": false
+    "editor.insertSpaces": false,
+    "editor.tabSize": 8
   },
-  "[html]": {
-    "editor.tabSize": 2
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 8
+  },
+  "[python]": {
+    "editor.tabSize": 4
   },
   "[sql]": {
     "editor.tabSize": 4
   }
 }
+
