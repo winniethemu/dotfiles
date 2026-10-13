@@ -17,6 +17,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias gp="git pull -p"
 alias gg="git push"
+alias ls="ls -p"
 
 # Plugins
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
